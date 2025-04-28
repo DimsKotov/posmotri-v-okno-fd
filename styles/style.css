@@ -19,9 +19,50 @@ html {
   background-color: #1b1919;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Кастомный скроллбар */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgb(217 217 217 / 10%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .content {
   display: grid;
-  grid-area: content;
   max-width: 1140px;
   max-height: 534px;
   margin: auto;
@@ -53,17 +94,12 @@ html {
   font-family: inherit;
   background-color: inherit;
   min-width: 225px;
-  letter-spacing: 1px;
   border: none;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   appearance: none;
   color: #fff;
-}
-
-.search-form__textfield:focus-visible {
-  outline: 1px solid white;
-  outline-offset: 2px;
+  padding: 7px 0 4px 0px;
 }
 
 .search-form__textfield:active {
@@ -72,9 +108,21 @@ html {
   outline-offset: -1px;
 }
 
+.search-form__textfield:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 2px;
+}
+
 .search-form__textfield::placeholder {
-  letter-spacing: 2px;
   color: rgb(255 255 255 / 70%);
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+.search-form__textfield:hover {
+  text-decoration: none;
 }
 
 .search-form__pseudo-checkbox {
@@ -109,12 +157,6 @@ html {
   column-gap: 10px;
 }
 
-.search-form__label:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
-}
-
 .search-form__label:active {
   text-decoration: none;
 }
@@ -123,6 +165,12 @@ html {
   outline: none;
   outline: 1px solid white;
   outline-offset: 1px;
+}
+
+.search-form__label-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .button {
@@ -134,14 +182,12 @@ html {
   text-align: center;
   color: #fff;
   border: 1px solid white;
-  letter-spacing: 1px;
   min-height: 34px;
 }
 
 .search-form__submit-button {
   align-self: end;
   min-width: 194px;
-  min-height: 34px;
   margin-top: 18px;
 }
 
@@ -163,19 +209,17 @@ html {
 
 .more-button {
   margin-top: 30px;
-  min-height: 34px;
   width: 98%;
 }
 
 .content__details {
   height: 100%;
-  max-width: 399px;
+  min-width: 399px;
 }
 
 .content__list-container {
   position: relative;
   overflow-y: auto;
-  overflow-x: hidden;
   max-height: 300px;
 }
 
@@ -200,7 +244,6 @@ html {
 .content__video-card-description-container {
   max-width: 196px;
   max-height: 103px;
-  flex-grow: 1;
 }
 
 .content__list-item {
@@ -209,7 +252,11 @@ html {
   outline: none;
 }
 
-.content__video-card:hover {
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-thickness: 1px;
@@ -234,41 +281,9 @@ html {
 }
 
 .result__video {
-  object-fit: contain;
+  object-position: contain;
   height: 100%;
   width: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-/* Кастомный скроллбар */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #d9d9d9;
 }
 
 .result {
@@ -281,7 +296,7 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .title {
@@ -324,14 +339,4 @@ ol {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
